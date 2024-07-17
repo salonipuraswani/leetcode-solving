@@ -1,0 +1,45 @@
+//brute force approach:by using array
+public class Solution {
+    public int[] prevSmaller(int[] A) {
+        int n=A.length;
+        int ans[]=new int[n];
+        for(int j=0;j<n;j++){
+            boolean flag=false;
+            for(int i=j-1;i>=0;i--){
+            flag=false;
+            if(A[j]>A[i]){
+                ans[j]=A[i];
+                flag=true;
+                break;
+            }
+        }
+        if(flag==false){
+            ans[j]=-1;
+        }
+        }
+      return ans;  
+    }
+}
+
+//optimal approach:using stack
+//optimal approach:by using stack
+public class Solution {
+    public int[] prevSmaller(int[] A) {
+        int n=A.length;
+        int ans[]=new int[n];
+        Stack<Integer> stk=new Stack<Integer>();
+        for(int i=0;i<n;i++){
+            while(!stk.isEmpty() && stk.peek()>=A[i]){
+                stk.pop();
+            }
+            if(!stk.isEmpty() && stk.peek()<A[i]){
+                ans[i]=stk.peek();
+            }
+            else{
+                ans[i]=-1;
+            }
+            stk.push(A[i]);
+        }
+      return ans;  
+    }
+}
