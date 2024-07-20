@@ -1,3 +1,5 @@
+//time complexity:O(N*M)
+//space complexity:O(N*M)
 class Solution {
     public int[][] restoreMatrix(int[] rowSum, int[] colSum) {
         int n=rowSum.length;
